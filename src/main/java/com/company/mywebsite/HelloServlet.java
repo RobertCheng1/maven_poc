@@ -35,9 +35,10 @@ public class HelloServlet extends HttpServlet {
      * @throws ServletException
      * @throws IOException
      *
+     *
      * 浏览器里请求： http://localhost:8080/mavenpoc/
      * 细心的童鞋可能会问，为啥路径是/hello/而不是/？
-     * 因为一个Web服务器允许同时运行多个Web App，而我们的Web App叫 mavenpoc，在 pom.xml 中指定的 finalName 为 mavenpoc
+     * 因为一个Web服务器允许同时运行多个Web App，而我们的Web App叫 mavenpoc (在 pom.xml 中指定的 finalName 为 mavenpoc)
      * 因此，第一级目录/mavenpoc 表示Web App的名字， 后面的 / 才是我们在HelloServlet中映射的路径。
      */
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
