@@ -35,6 +35,7 @@ public class HelloServlet extends HttpServlet {
      * @throws ServletException
      * @throws IOException
      *
+     * 仅仅是 Web开发--Servlet入门：
      * 注意到这个pom.xml与前面我们讲到的普通Java程序有个区别，打包类型不是jar，而是war，表示Java Web Application Archive
      * 我们应该如何运行这个war文件？
      * 普通的Java程序是通过启动JVM，然后执行main()方法开始运行。但是Web应用程序有所不同，我们无法直接运行war文件，
