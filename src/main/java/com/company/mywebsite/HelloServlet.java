@@ -36,7 +36,22 @@ public class HelloServlet extends HttpServlet {
      * @throws IOException
      *
      * 仅仅是 Web开发--Servlet入门：
-     * 注意到这个pom.xml与前面我们讲到的普通Java程序有个区别，打包类型不是jar，而是war，表示Java Web Application Archive
+     * JavaEE并不是一个软件产品，它更多的是一种软件架构和设计思想。
+     * 我们可以把JavaEE看作是在JavaSE的基础上，开发的一系列基于服务器的组件、API标准和通用架构。
+     * JavaEE最核心的组件就是基于Servlet标准的Web服务器，开发者编写的应用程序是基于Servlet API并运行在Web服务器内部的：
+     *      ┌─────────────┐
+     *      │┌───────────┐│
+     *      ││ User App  ││
+     *      │├───────────┤│
+     *      ││Servlet API││
+     *      │└───────────┘│
+     *      │ Web Server  │
+     *      ├─────────────┤
+     *      │   JavaSE    │
+     *      └─────────────┘
+     * 目前流行的基于Spring的轻量级JavaEE开发架构，使用最广泛的是Servlet和JMS，以及一系列开源组件。
+     *
+     * 注意到这个 pom.xml与前面我们讲到的普通Java程序有个区别，打包类型不是jar，而是war，表示Java Web Application Archive
      * 我们应该如何运行这个war文件？
      * 普通的Java程序是通过启动JVM，然后执行main()方法开始运行。但是Web应用程序有所不同，我们无法直接运行war文件，
      * 必须先启动Web服务器，再由Web服务器加载我们编写的 HelloServlet，这样就可以让HelloServlet处理浏览器发送的请求。
