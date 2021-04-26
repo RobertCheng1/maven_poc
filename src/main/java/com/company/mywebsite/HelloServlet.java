@@ -70,13 +70,13 @@ public class HelloServlet extends HttpServlet {
      * 如果Tomcat服务器收到的请求路径是 /（假定部署文件为ROOT.war），就转发到HelloServlet并传入 HttpServletRequest和 HttpServletResponse两个对象。
      * 因为我们编写的Servlet并不是直接运行，而是由Web服务器加载后创建实例运行，所以，类似Tomcat这样的Web服务器也称为Servlet容器。===术语===
      * 在Servlet容器中运行的Servlet具有如下特点：
-     *      无法在代码中直接通过new创建Servlet实例，必须由Servlet容器自动创建Servlet实例；===联想反射中提到的Class的实例只能由JVM创建===
-     *      Servlet容器只会给每个Servlet类创建唯一实例；
-     *      Servlet容器会使用多线程执行doGet()或doPost()方法。
+     *      1.无法在代码中直接通过new创建Servlet实例，必须由Servlet容器自动创建Servlet实例；===联想反射中提到的Class的实例只能由JVM创建===
+     *      2.Servlet容器只会给每个Servlet类创建唯一实例；
+     *      3.Servlet容器会使用多线程执行doGet()或doPost()方法。
      * 复习一下 Java 多线程的内容，我们可以得出结论：
-     *      在 Servlet 中定义的实例变量会被多个线程同时访问，要注意线程安全；
-     *      HttpServletRequest和 HttpServletResponse实例是由 Servlet 容器传入的局部变量，它们只能被当前线程访问，不存在多个线程访问的问题；
-     *      在doGet()或doPost()方法中，如果使用了ThreadLocal，但没有清理，那么它的状态很可能会影响到下次的某个请求，因为Servlet容器很可能用线程池实现线程复用。
+     *      1.在 Servlet 中定义的实例变量会被多个线程同时访问，要注意线程安全；
+     *      2.HttpServletRequest和 HttpServletResponse实例是由 Servlet 容器传入的局部变量，它们只能被当前线程访问，不存在多个线程访问的问题；
+     *      3.在doGet()或doPost()方法中，如果使用了ThreadLocal，但没有清理，那么它的状态很可能会影响到下次的某个请求，因为Servlet容器很可能用线程池实现线程复用。
      * 因此，正确编写Servlet，要清晰理解Java的多线程模型，需要同步访问的必须同步。 from: Web开发--Servlet入门
      */
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
